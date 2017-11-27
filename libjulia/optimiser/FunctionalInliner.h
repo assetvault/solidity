@@ -65,6 +65,7 @@ public:
 	bool operator()(solidity::assembly::StackAssignment&) { solAssert(false, ""); }
 	bool operator()(solidity::assembly::Assignment& _assignment);
 	bool operator()(solidity::assembly::VariableDeclaration& _varDecl);
+	bool operator()(solidity::assembly::If& _if);
 	bool operator()(solidity::assembly::Switch& _switch);
 	bool operator()(solidity::assembly::FunctionDefinition&);
 	bool operator()(solidity::assembly::ForLoop&);

@@ -73,6 +73,13 @@ bool FunctionalInliner::operator()(VariableDeclaration& _varDecl)
 	return false;
 }
 
+bool FunctionalInliner::operator()(If& _if)
+{
+	tryInline(*_if.condition);
+	(*this)(_if.body);
+	return false;
+}
+
 bool FunctionalInliner::operator()(Switch& _switch)
 {
 	tryInline(*_switch.expression);

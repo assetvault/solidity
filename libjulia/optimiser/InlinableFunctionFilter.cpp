@@ -46,6 +46,12 @@ bool InlinableFunctionFilter::operator()(FunctionCall const& _funCall)
 	return allowed(_funCall.functionName.name) && all(_funCall.arguments);
 }
 
+bool InlinableFunctionFilter::operator()(If const& _if)
+{
+	(*this)(_if.body);
+	return false;
+}
+
 bool InlinableFunctionFilter::operator()(Switch const& _switch)
 {
 	for (auto const& _case: _switch.cases)

@@ -58,6 +58,7 @@ public:
 	bool operator()(solidity::assembly::StackAssignment const&) { solAssert(false, ""); }
 	bool operator()(solidity::assembly::Assignment const&) { return false; }
 	bool operator()(solidity::assembly::VariableDeclaration const&) { return false; }
+	bool operator()(solidity::assembly::If const& _if);
 	bool operator()(solidity::assembly::Switch const& _switch);
 	bool operator()(solidity::assembly::FunctionDefinition const& _function);
 
